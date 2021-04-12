@@ -54,7 +54,8 @@ def post_facebook_message(fbid, recevied_message):
     
     if not joke_text:
         print(u"Би ойлгосонгүй! Бидэн уруу '%s', 'Түгээмэл асуулт хариулт', 'Эхлэх' гэж илгээнэ үү!"%("Холбоо барих"))
-
+    
+    print('hariu')
 
 
 
