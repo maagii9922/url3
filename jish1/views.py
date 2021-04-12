@@ -8,6 +8,6 @@ def home(request):
 class Botview(generic.View):
     def get(self,request, *args,**kwargs):
         print(request)
-        return HttpResponse("req " + request)
+        return HttpResponse("req " + str(request))
         
  
