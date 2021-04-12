@@ -29,13 +29,19 @@ class Botview(generic.View):
 
     def post(self,request,*args,**kwargs):
         incoming_massege=json.loads(self.request.body.decode('utf-8'))
+
+
         # return HttpResponse(incoming_massege['object']
         for entry in incoming_massege['entry']:
             # print(entry)
             for m in entry['messaging']:
                 # print(m)
                 if 'message' in m:
-                    post_facebook_message(m['sender']['id'],m['message']['text'])
+                    # post_facebook_message(m['sender']['id'],m['message']['text'])
+                    handleMessage(m['sender']['id'], m['message'])
+                else :
+                    handlePostback(m['sender']['id'], m['message'])
+
         return HttpResponse()
 
 
@@ -75,6 +81,31 @@ def post_facebook_message(fbid, recevied_message):
     return HttpResponse(joke_text)
 
 
+#  Handles messages events
+def handleMessage(sender_psid, received_message):
+    response = ''
+    if "text" in recevied_message:
+        response = "text You sent the message: " + received_message.text + ". Now send me an image!"
+    callSendAPI(sender_psid, response)
+  
+
+
+
+# Handles messaging_postbacks events
+def handlePostback(sender_psid, received_postback):
+    pass
+
+
+
+#  Sends response messages via the Send API
+def callSendAPI(sender_psid, response):
+    request_body = {
+        "recipient": {"id": sender_psid}, "message": response
+    }
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
+    status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=request_body)
+
+  
 
 
 
