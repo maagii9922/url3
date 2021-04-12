@@ -86,7 +86,7 @@ def handleMessage(sender_psid, received_message):
     print(received_message)
     response = ''
     if "text" in received_message:
-        response = "text You sent the message: " + received_message['text'] + ". Now send me an image!"
+        response = {"text": "You sent the message: " + received_message['text'] + ". Now send me an image!"}
     elif "attachments" in received_message :  
         attachment_url = received_message['attachments'][0]['payload']['url']
         print(attachment_url)
@@ -133,7 +133,7 @@ def callSendAPI(sender_psid, response):
 
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
     response_msg = json.dumps(
-        {"recipient": {"id": sender_psid}, "message": {"text": response}})
+        {"recipient": {"id": sender_psid}, "message": response})
     status = requests.post(post_message_url, headers={
                            "Content-Type": "application/json"}, data=response_msg)
     return HttpResponse(status)
