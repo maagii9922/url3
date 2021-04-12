@@ -124,8 +124,13 @@ def handleMessage(sender_psid, received_message):
 
 # Handles messaging_postbacks events
 def handlePostback(sender_psid, received_postback):
-    pass
-
+    response = ''
+    payload = received_postback['payload']
+    if payload == 'yes':
+        response = { "text": "Thanks!" }
+    elif payload == 'no':
+        response = { "text": "Oops, try sending another image." }
+    callSendAPI(sender_psid, response)
 
 
 #  Sends response messages via the Send API
