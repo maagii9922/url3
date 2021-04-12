@@ -49,6 +49,7 @@ def post_facebook_message(fbid, recevied_message):
     joke_text = ''
 
     for key, value in jokes.items(): 
+        print(key)
         if tokens.find(key) >= 0:
             joke_text = random.choice(jokes[key])
     
