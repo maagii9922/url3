@@ -24,5 +24,7 @@ class Botview(generic.View):
 
     def post(self,request,*args,**kwargs):
         incoming_massege=json.loads(self.request.body.decode('utf-8'))
-        # for entry in incoming_massege()
-        return HttpResponse(incoming_massege['object'])
+        # return HttpResponse(incoming_massege['object']
+        for entry in incoming_massege['entry']:
+            print(entry)
+            # for message in entry['messaging']
