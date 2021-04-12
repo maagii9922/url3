@@ -33,6 +33,30 @@ class Botview(generic.View):
                     post_facebook_message(m['sender']['id'],m['message']['text'])
         return HttpResponse("okkkk")
 
+
+jokes = {
+    u'холбоо барих': [u"""холбоо барих-1.""", u"""холбоо барих-2."""],
+    u'түгээмэл асуулт хариулт': [u"""түгээмэл асуулт хариулт-1.""", u"""түгээмэл асуулт хариулт-2"""],
+    u'эхлэх': [u"""эхлэх-1""", u"""эхлэх-2."""]
+}
+
 def post_facebook_message(fbid, recevied_message):
-    print(fbid)
-    print(recevied_message)
+    tokens = re.sub(r"[^a-zA-Z0-9А-я,\s]", '', recevied_message).lower()
+    
+    joke_text = ''
+
+    for key, value in jokes.items(): 
+    if tokens.find(key) >= 0:
+        joke_text = random.choice(jokes[key])
+    
+    if not joke_text:
+        print(u"Би ойлгосонгүй! Бидэн уруу '%s', 'Түгээмэл асуулт хариулт', 'Эхлэх' гэж илгээнэ үү!"%("Холбоо барих"))
+
+
+
+
+
+
+
+
+
