@@ -26,6 +26,7 @@ class Botview(generic.View):
         incoming_massege=json.loads(self.request.body.decode('utf-8'))
         # return HttpResponse(incoming_massege['object']
         for entry in incoming_massege['entry']:
-            print(entry)
-            # for message in entry['messaging']
+            # print(entry)
+            for message in entry['messaging']
+            print(message)
         return HttpResponse("okkkk")
