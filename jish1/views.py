@@ -34,4 +34,5 @@ class Botview(generic.View):
         return HttpResponse("okkkk")
 
 def post_facebook_message(fbid, recevied_message):
-    pass
+    print(fbid)
+    print(recevied_message)
