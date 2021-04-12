@@ -32,3 +32,5 @@ class Botview(generic.View):
                 if 'message' in m:
                     post_facebook_message(m['sender']['id'],m['message']['text'])
         return HttpResponse("okkkk")
+
+def post_facebook_message(fbid, recevied_message):
