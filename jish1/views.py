@@ -27,6 +27,6 @@ class Botview(generic.View):
         # return HttpResponse(incoming_massege['object']
         for entry in incoming_massege['entry']:
             # print(entry)
-            for message in entry['messaging']
-            print(message)
+            for m in entry['messaging']:
+                print(m)
         return HttpResponse("okkkk")
