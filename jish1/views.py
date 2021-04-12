@@ -40,7 +40,7 @@ class Botview(generic.View):
                     # post_facebook_message(m['sender']['id'],m['message']['text'])
                     handleMessage(m['sender']['id'], m['message'])
                 else :
-                    handlePostback(m['sender']['id'], m['message'])
+                    handlePostback(m['sender']['id'], m['postback'])
 
         return HttpResponse()
 
