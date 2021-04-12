@@ -102,11 +102,12 @@ def handlePostback(sender_psid, received_postback):
 
 #  Sends response messages via the Send API
 def callSendAPI(sender_psid, response):
-    request_body = {
-        "recipient": {"id": sender_psid}, "message": response
-    }
+
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
-    status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=request_body)
+    response_msg = json.dumps(
+        {"recipient": {"id": sender_psid}, "message": {"text": response}})
+    status = requests.post(post_message_url, headers={
+                           "Content-Type": "application/json"}, data=response_msg)
     return HttpResponse(status)
   
 
