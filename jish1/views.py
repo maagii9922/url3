@@ -28,3 +28,4 @@ class Botview(generic.View):
         for entry in incoming_massege['entry']:
             print(entry)
             # for message in entry['messaging']
+        return HttpResponse("okkkk")
