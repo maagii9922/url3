@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views import generic
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from json
 
 def home(request):
     return HttpResponse("hello")
