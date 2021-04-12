@@ -83,9 +83,12 @@ def post_facebook_message(fbid, recevied_message):
 
 #  Handles messages events
 def handleMessage(sender_psid, received_message):
+    print(sender_psid)
+    print(received_message)
     response = ''
     if "text" in received_message:
         response = "text You sent the message: " + received_message['text'] + ". Now send me an image!"
+    print(response)
     callSendAPI(sender_psid, response)
   
 
