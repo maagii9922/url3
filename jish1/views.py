@@ -46,8 +46,8 @@ def post_facebook_message(fbid, recevied_message):
     joke_text = ''
 
     for key, value in jokes.items(): 
-    if tokens.find(key) >= 0:
-        joke_text = random.choice(jokes[key])
+        if tokens.find(key) >= 0:
+            joke_text = random.choice(jokes[key])
     
     if not joke_text:
         print(u"Би ойлгосонгүй! Бидэн уруу '%s', 'Түгээмэл асуулт хариулт', 'Эхлэх' гэж илгээнэ үү!"%("Холбоо барих"))
