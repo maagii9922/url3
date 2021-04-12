@@ -29,6 +29,6 @@ class Botview(generic.View):
             # print(entry)
             for m in entry['messaging']:
                 # print(m)
-                if 'message' in message:
-                    post_facebook_message(message['sender']['id'],message['message']['text'])
+                if 'message' in m:
+                    post_facebook_message(m['sender']['id'],m['message']['text'])
         return HttpResponse("okkkk")
