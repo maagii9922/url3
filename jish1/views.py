@@ -45,7 +45,7 @@ jokes = {
 
 def post_facebook_message(fbid, recevied_message):
     tokens = re.sub(r"[^a-zA-Z0-9А-я,\s]", '', recevied_message).lower()
-    
+    print(tokens)
     joke_text = ''
 
     for key, value in jokes.items(): 
