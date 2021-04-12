@@ -107,7 +107,7 @@ def callSendAPI(sender_psid, response):
     }
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s' % PAGE_ACCESS_TOKEN
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=request_body)
-
+    return HttpResponse(status)
   
 
 
