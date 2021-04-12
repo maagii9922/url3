@@ -6,3 +6,5 @@ DEBUG = True
 ROOT_URLCONF = 'jish1.urls'
 
 ALLOWED_HOSTS = []
+
+STATIC_URL = "/static/"
